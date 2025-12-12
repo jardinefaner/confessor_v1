@@ -1,3 +1,4 @@
+import 'package:confessor_v1/widgets/header.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -6,25 +7,36 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          // Main heading + buttons
-          Container(height: 100, color: Colors.amber),
-          Row(
-            children: [
-              // Main canvas
-              Expanded(
-                flex: 7,
-                child: Column(children: [Text('This is a column.')]),
+      // background gradient
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Stack(
+          children: [
+            // at the very back
+            SizedBox(
+              height: double.infinity,
+              width: double.infinity,
+              child: SingleChildScrollView(
+                child: Column(
+                  spacing: 8,
+                  children: [
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+                    for (int i = 1; i < 50; i++)
+                      Text('Hello, number ${i * i}!!'),
+                    // bottom margin
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+                  ],
+                ),
               ),
-              // Action buttons
-              Flexible(
-                flex: 1,
-                child: Column(children: [Text('This is a column.')]),
-              ),
-            ],
-          ),
-        ],
+            ),
+            Positioned(top: 0, left: 0, right: 0, child: Header()),
+            Positioned(
+              bottom: 0,
+              right: 0,
+              child: Column(children: [FloatingActionButton(onPressed: () {})]),
+            ),
+          ],
+        ),
       ),
     );
   }

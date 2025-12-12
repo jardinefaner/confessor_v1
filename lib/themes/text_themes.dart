@@ -3,8 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class TextThemes {
   static TextTheme _buildTextTheme(TextTheme base) {
-    final TextTheme body = GoogleFonts.merriweatherSansTextTheme(base);
-    final TextTheme title = GoogleFonts.merriweatherTextTheme(base);
+    final TextTheme body = GoogleFonts.lexendTextTheme(base);
+    final TextTheme title = GoogleFonts.unnaTextTheme(base);
     return title.copyWith(
       bodyLarge: body.bodyLarge,
       bodyMedium: body.bodyMedium,
